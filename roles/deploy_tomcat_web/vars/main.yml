@@ -1,0 +1,12 @@
+---
+# vars file for deploy_tomcat_web
+tomcat_home: /opt/tomcat/
+tomcat_context: /opt/tomcat/webapps/manager/META-INF/
+tomcat_service: /etc/systemd/system/
+tomcat_conf: /opt/tomcat/conf/
+
+http_port: 80
+https_port: 8443
+
+admin_username: student
+admin_password: 1234
