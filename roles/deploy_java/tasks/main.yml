@@ -1,4 +1,4 @@
 ---
 # tasks file for deploy_java
-- name: Install Java 1.8
-  yum: name=java-1.8.0-openjdk state=present
+- import_tasks: install_java.yml
+- import_tasks: verification_java.yml 

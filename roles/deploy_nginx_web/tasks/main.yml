@@ -1,7 +1,5 @@
 ---
 # tasks file for deploy_nginx_web
-- name: Install Nginx repo
-  copy: src=nginx.repo dest=nginx_repo mode=0755
 
-- name: Install Nginx
-  yum: name=nginx state=latest
+- import_tasks: install_nginx.yml  
+- import_tasks: verification_nginx.yml

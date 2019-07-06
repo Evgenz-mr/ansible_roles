@@ -1,0 +1,7 @@
+---
+- name: Java version
+  shell: java -version
+  register: java_version
+
+- name: Check JAVA version
+  debug: var=java_version.stderr
