@@ -1,3 +1,7 @@
 ---
 # tasks file for deploy_tomcat_web
 - import_tasks: install_tomcat.yml
+<<<<<<< HEAD
+=======
+- import_tasks: verification_tomcat.yml
+>>>>>>> 897faca28c3e5abe2012a3902bf732f31fc82602
