@@ -1,7 +1,0 @@
----
-- name: Availability check (systemd) to Tomcat
-  shell: systemctl status tomcat | grep active
-  register: res1
-
-- name: Check service Tomcat with systemd
-  debug: var=res1.stdout_lines

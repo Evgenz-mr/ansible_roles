@@ -1,7 +1,3 @@
 ---
-# tasks file for deploy_java
-- import_tasks: install_java.yml
-<<<<<<< HEAD
-=======
-- import_tasks: verification_java.yml 
->>>>>>> 897faca28c3e5abe2012a3902bf732f31fc82602
+- name: Install Java 1.8
+  yum: name={{ java_version }} state=latest

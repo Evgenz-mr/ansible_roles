@@ -1,8 +1,4 @@
 ---
 - name: Install Java 1.8
-<<<<<<< HEAD
   yum: name={{ java_version }} state=latest
-=======
-  yum: name=java-1.8.0-openjdk-devel state=latest
->>>>>>> 897faca28c3e5abe2012a3902bf732f31fc82602
 

@@ -1,9 +1,42 @@
 ---
-# tasks file for deploy_nginx_web
-<<<<<<< HEAD
-- import_tasks: install_nginx.yml  
-=======
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: latest
 
-- import_tasks: install_nginx.yml  
-- import_tasks: verification_nginx.yml
->>>>>>> 897faca28c3e5abe2012a3902bf732f31fc82602
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: latest
+
+- name: Install nginx configuration
+  template:
+    src: default.conf
+    dest: "{{ nginx_conf }}"
+    mode: 0755
+
+- name: start service nginx
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
+    daemon_reload: yes
+
+- name: add rule for firewall
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+
+- name: restart service firewall
+  systemd:
+    name: firewalld
+    daemon_reload: yes
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+- name: Unconditionally reboot the machine with all defaults
+  reboot:
+
