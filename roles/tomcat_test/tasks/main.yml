@@ -1,0 +1,3 @@
+---
+# tasks file for tomcat_test
+- import_tasks: verification_tomcat.yml

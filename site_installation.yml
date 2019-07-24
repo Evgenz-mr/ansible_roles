@@ -1,0 +1,10 @@
+---
+# This playbook deploys a simple standalone Tomcat 9 server.
+
+- hosts: Linux1
+  remote_user: root
+
+  roles:
+   - deploy_java 
+   - deploy_tomcat_web
+   - deploy_nginx_web

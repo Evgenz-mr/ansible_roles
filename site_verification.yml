@@ -3,10 +3,8 @@
 
 - hosts: Linux1
   remote_user: root
-  become: yes
-  become_method: sudo
 
   roles:
-   - deploy_java 
-   - deploy_tomcat_web
-   - deploy_nginx_web
+   - java_test
+   - tomcat_test
+   - nginx_test

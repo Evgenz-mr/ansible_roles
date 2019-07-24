@@ -1,3 +1,6 @@
 ---
 # vars file for deploy_nginx_web
-nginx_repo: /etc/yum.repos.d/
+
+nginx_conf: /etc/nginx/conf.d/
+
+server_name: localhost
