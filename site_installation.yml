@@ -6,5 +6,5 @@
 
   roles:
    - java 
-   - tomcat
    - nginx
+   - tomcat
