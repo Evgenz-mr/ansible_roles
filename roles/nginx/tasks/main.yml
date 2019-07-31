@@ -32,6 +32,8 @@
   systemd:
     name: firewalld
     daemon_reload: yes
+  notify:
+    - restart nginx
 
 - name: Disable SELinux
   selinux:

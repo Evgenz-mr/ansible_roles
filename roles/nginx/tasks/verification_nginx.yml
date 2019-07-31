@@ -1,7 +1,0 @@
----
-- name: Availability check (systemd) to Nginx
-  shell: systemctl status nginx | grep active
-  register: res2
-
-- name: Check service Nginx with systemd
-  debug: var=res2.stdout_lines
