@@ -1,0 +1,52 @@
+2020-06-04 16:11:39,834 p=2850 u=root n=ansible | Linux | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.145.158 port 22: Connection timed out", 
+    "unreachable": true
+}
+2020-06-04 16:11:39,835 p=2850 u=root n=ansible | Linux1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.145.155 port 22: Connection timed out", 
+    "unreachable": true
+}
+2020-06-04 16:22:31,016 p=2872 u=root n=ansible | Linux | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '192.168.88.233' (ECDSA) to the list of known hosts.\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", 
+    "unreachable": true
+}
+2020-06-04 16:22:34,533 p=2872 u=root n=ansible | Linux1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.145.155 port 22: Connection timed out", 
+    "unreachable": true
+}
+2020-06-04 16:22:59,040 p=2893 u=root n=ansible | Linux1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", 
+    "unreachable": true
+}
+2020-06-04 16:22:59,046 p=2893 u=root n=ansible | Linux | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", 
+    "unreachable": true
+}
+2020-06-04 16:26:49,652 p=2915 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: test
+
+2020-06-04 16:26:49,653 p=2915 u=root n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2020-06-04 16:31:52,779 p=3100 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: test
+
+2020-06-04 16:31:52,780 p=3100 u=root n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2020-06-04 16:32:03,180 p=3109 u=root n=ansible | Linux1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-06-04 16:32:03,182 p=3109 u=root n=ansible | Linux | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
