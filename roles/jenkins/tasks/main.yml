@@ -9,7 +9,7 @@
   shell: wget -O {{ jenkins_repo_in }} {{ jenkins_repo_out }}
 
 - name: Ensure JAVA is installed
-  command: "java -version"
+  command: java -version
   register: prereq_java
   changed_when: false
 
