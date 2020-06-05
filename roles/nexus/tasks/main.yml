@@ -1,11 +1,11 @@
 ---
 # tasks file for nexus
-- import tasks: Install nexus.yml
+- include_tasks: Install nexus.yml
 
 - name: Add nexus user
   shell: useradd --system --no-create-home {{ nexus_user }}
 
-- import tasks: Configure nexus
+- include_tasks: Configure nexus
 
 - name: Add own directory nexus
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
@@ -36,4 +36,4 @@
 - name: Setup SELinux policy for Nginx
   shell: setsebool -P httpd_can_network_connect 1
 
-- import tasks: Check admin password.yml
+- include_tasks: Check admin password.yml

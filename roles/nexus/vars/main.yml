@@ -7,6 +7,7 @@ nexus_unit: /etc/systemd/system/
 nexus_data: /opt/nexusdata
 
 nexus_web: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+nexus_version: latest-unix
 
 nexus_ip: 192.168.88.243
 nexus_port: 8081

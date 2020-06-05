@@ -1,12 +1,17 @@
 ---
 # tasks file for jenkins
-- import tasks: Install a list of packages.yml
+- include_tasks: Install a list of packages.yml
 
 - name: Importing the repository key from Jenkins
   shell: rpm --import {{ jenkins-ci-key }}
 
 - name: Add the repository to the system
   shell: wget -O {{ jenkins_repo_in }} {{ jenkins_repo_out }}
+
+- name: Ensure JAVA is installed
+  command: "java -version"
+  register: prereq_java
+  changed_when: false
 
 - name: Install the Jenkins
   yum:
@@ -35,4 +40,4 @@
     notify:
       - restart jenkins
 
-- import tasks: Check admin password.yml
+- include_tasks: Check admin password.yml
