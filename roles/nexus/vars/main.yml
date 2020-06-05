@@ -1,2 +1,9 @@
 ---
 # vars file for nexus
+
+nexus_home: /opt/nexus
+nexus_config: /opt/nexus/etc/
+
+nexus_ip: 192.168.88.243
+nexus_port: 8081
+nexus_context: /nexus
