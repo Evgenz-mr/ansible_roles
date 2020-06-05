@@ -1,0 +1,10 @@
+---
+
+- name: Install a list of packages
+  yum:
+    name:
+      - curl
+      - wget
+      - net-tools
+      - vim
+    state: latest

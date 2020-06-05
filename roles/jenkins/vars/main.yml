@@ -6,4 +6,6 @@ jenkins_repo_in: /etc/yum.repos.d/jenkins.repo
 
 jenkins_repo_out: http://pkg.jenkins-ci.org/redhat/jenkins.repo
 
+jenkins_port: 8080
+
 jenkins_log: /var/log/jenkins/jenkins.log

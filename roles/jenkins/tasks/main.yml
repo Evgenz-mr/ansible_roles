@@ -1,13 +1,6 @@
 ---
 # tasks file for jenkins
-- name: Install a list of packages
-  yum:
-    name:
-      - curl
-      - wget
-      - net-tools
-      - vim
-    state: latest
+- import tasks: Install a list of packages.yml
 
 - name: Importing the repository key from Jenkins
   shell: rpm --import {{ jenkins-ci-key }}
@@ -28,14 +21,8 @@
     daemon_reload: yes
 
 - firewalld:
-    port: 8080/tcp
+    port: {{ jenkins_port }}/tcp
     permanent: yes
     state: enabled
 
-- name: View the admin password is created and stored in the log file
-  shell: grep -A 5 password {{ jenkins_log }}
-  register: passwd
-
-- name: Check admin password
-  debug:
-    var: passwd
+- import tasks: Check admin password.yml
