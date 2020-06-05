@@ -13,7 +13,7 @@
     name: Jenkins
     state: latest
 
-- name: Configure Tomcat users
+- name: Configure Jenkins
   template:
     src: jenkins
     dest: {{ jenkins_config }}

@@ -1,0 +1,19 @@
+---
+
+- name: Configure Nexus
+  template:
+    src: nexus.vmoptions
+    dest: "{{ nexus_home }}/bin/"
+    mode: 0755
+
+- name: Configure Nexus (start nexus user)
+  template:
+    src: nexus.rc
+    dest: "{{ nexus_home }}/bin/"
+    mode: 0755
+
+- name: Configure Nexus (nexus port, ip, args)
+  template:
+    src: nexus-default.properties
+    dest: {{ nexus_config }}
+    mode: 0755

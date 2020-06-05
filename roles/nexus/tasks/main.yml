@@ -1,2 +1,49 @@
 ---
 # tasks file for nexus
+- name: Download Nexus
+  get_url:
+    url: {{ nexus_web }}
+    dest: /opt
+    mode: '755'
+
+- name: Extract Nexus
+  unarchive:
+    src: /opt/latest-unix.tar.gz
+    dest: /opt/
+
+- name: Nexus rename
+  shell: mv /opt/nexus-3.* {{ nexus_home }}
+
+- name: Nexusdata rename
+  shell: mv sonatype-work nexusdata
+
+- name: Add nexus user
+  shell: useradd --system --no-create-home {{ nexus_user }}
+
+- import tasks: Configure nexus
+
+- name: Add own directory nexus
+  shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
+
+- name: Add own directory nexusdata
+  shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_data }}
+
+- name: Set Nexus as a System Service
+  template:
+    src: nexus.service
+    dest: {{ nexus_unit }}
+    mode: 0755
+
+- name: Start service Nexus
+  systemd:
+    name: nexus
+    state: started
+    enabled: yes
+    daemon_reload: yes
+
+- firewalld:
+    port: {{ nexus_port }}/tcp
+    permanent: yes
+    state: enabled
+    notify:
+      - restart nexus
