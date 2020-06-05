@@ -13,6 +13,14 @@
     name: Jenkins
     state: latest
 
+- name: Configure Tomcat users
+  template:
+    src: jenkins
+    dest: {{ jenkins_config }}
+    mode: 0755
+  notify:
+    - restart jenkins
+
 - name: Start service Jenkins
   systemd:
     name: jenkins

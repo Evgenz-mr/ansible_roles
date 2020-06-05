@@ -3,4 +3,9 @@
 
 nginx_conf: /etc/nginx/conf.d/
 
-server_name: localhost
+server_name: 192.168.88.243
+
+jenkins_port: 8585
+tomcat_port: 8080
+nexus_port: 8081
+sonarqube_port: 9000

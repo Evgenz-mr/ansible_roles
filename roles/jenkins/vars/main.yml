@@ -1,11 +1,17 @@
 ---
 # vars file for jenkins
 
+jenkins_config: /etc/sysconfig/
+
 jenkins-ci-key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 jenkins_repo_in: /etc/yum.repos.d/jenkins.repo
 
 jenkins_repo_out: http://pkg.jenkins-ci.org/redhat/jenkins.repo
 
-jenkins_port: 8080
+jenkins_port: 8585
+
+jenkins_ip: 192.168.88.243
+
+jenkins_args: --prefix=/jenkins
 
 jenkins_log: /var/log/jenkins/jenkins.log
