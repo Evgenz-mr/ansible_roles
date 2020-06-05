@@ -3,6 +3,8 @@
 
 nexus_home: /opt/nexus
 nexus_config: /opt/nexus/etc/
+nexus_unit: /etc/systemd/system/
+nexus_data: /opt/nexusdata
 
 nexus_ip: 192.168.88.243
 nexus_port: 8081
