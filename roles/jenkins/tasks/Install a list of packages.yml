@@ -7,4 +7,5 @@
       - wget
       - net-tools
       - vim
+      - unzip
     state: latest
