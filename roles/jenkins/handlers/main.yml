@@ -1,6 +1,6 @@
 ---
 # handlers file for jenkins
-- name: Restart service Jenkins, in all cases
+- name: restart jenkins
   service:
     name: jenkins
     state: restarted

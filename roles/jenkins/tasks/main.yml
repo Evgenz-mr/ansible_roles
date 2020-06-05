@@ -24,5 +24,7 @@
     port: {{ jenkins_port }}/tcp
     permanent: yes
     state: enabled
+    notify:
+      - restart jenkins
 
 - import tasks: Check admin password.yml
