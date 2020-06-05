@@ -10,10 +10,10 @@
     state: latest
 
 - name: Importing the repository key from Jenkins
-  shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  shell: rpm --import {{ jenkins-ci-key }}
 
 - name: Add the repository to the system
-  shell: wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+  shell: wget -O {{ jenkins_repo_in }} {{ jenkins_repo_out }}
 
 - name: Install the Jenkins
   yum:
@@ -33,7 +33,7 @@
     state: enabled
 
 - name: View the admin password is created and stored in the log file
-  shell: grep -A 5 password /var/log/jenkins/jenkins.log
+  shell: grep -A 5 password {{ jenkins_log }}
   register: passwd
 
 - name: Check admin password
