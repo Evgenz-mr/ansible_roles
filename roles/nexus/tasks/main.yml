@@ -47,3 +47,6 @@
     state: enabled
     notify:
       - restart nexus
+
+- name: Setup SELinux policy for Nginx
+  shell: setsebool -P httpd_can_network_connect 1
