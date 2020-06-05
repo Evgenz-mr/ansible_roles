@@ -4,7 +4,7 @@
   get_url:
     url: {{ nexus_web }}
     dest: /opt
-    mode: '755'
+    mode: 0755
 
 - name: Extract Nexus
   unarchive:
