@@ -5,15 +5,10 @@
 - name: Ensure Jenkins Repository is Installed
   shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
 
-- name: Ensure Jenkins Repository is Installed
-  yum_repository:
-    name: jenkins
+- name: install the jenkins rpm from a remote repo
+  yum:
+    name: https://pkg.jenkins.io/redhat-stable/jenkins-2.222.4-1.1.noarch.rpm
     state: present
-    description: Official Jenkins Yum Repo
-    baseurl: http://pkg.jenkins.io/redhat
-    gpgkey: https://jenkins-ci.org/redhat/jenkins-ci.org.key
-    gpgcheck: yes
-    enabled: yes
 
 - name: Ensure JAVA is installed
   command: java -version
