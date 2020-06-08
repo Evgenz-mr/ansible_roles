@@ -15,7 +15,7 @@
 
 - name: Install the Jenkins
   yum:
-    name: Jenkins
+    name: jenkins
     state: latest
 
 - name: Configure Jenkins
