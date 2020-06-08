@@ -3,10 +3,14 @@
 - include_tasks: Install a list of packages.yml
 
 - name: Importing the repository key from Jenkins
-  shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  rpm_key:
+    state: present
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
-- name: Add the repository to the system
-  shell: curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+- name: Download jenkins.repo
+    get_url:
+      url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
 
 - name: Ensure JAVA is installed
   command: java -version
@@ -16,6 +20,7 @@
 - name: Install the Jenkins
   yum:
     name: jenkins
+    state: present
 
 - name: Configure Jenkins
   template:
@@ -38,5 +43,8 @@
     state: enabled
     notify:
       - restart jenkins
+
+- name: Sleep for 30 seconds and continue with play
+    wait_for: timeout=30
 
 - include_tasks: Check admin password.yml
