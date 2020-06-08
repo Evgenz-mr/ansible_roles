@@ -1,0 +1,21 @@
+---
+
+- name: Download Sonar
+  get_url:
+    url: {{ sonar_download_url }}
+    dest: /opt
+    mode: 0755
+
+- name: Extract Sonar
+  unarchive:
+    src: /opt/{{ sonar_version_directory }}
+    dest: /opt/
+
+- name: Sonar rename
+  shell: mv /opt/{{ sonar_version_directory }} {{ sonar_home }}
+
+- name: Set Unit for Sonar
+  template:
+    src: sonar.service
+    dest: {{ sonar_unit }}
+    mode: 0755

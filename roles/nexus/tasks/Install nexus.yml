@@ -6,15 +6,16 @@
     dest: /opt
     mode: 0755
 
-- name: Remove Nexus archive
-    file:
-      path: "/opt/{{ nexus_version }}.tar.gz"
-      state: absent
 
 - name: Extract Nexus
   unarchive:
     src: /opt/latest-unix.tar.gz
     dest: /opt/
+
+- name: Remove Nexus archive
+    file:
+      path: "/opt/{{ nexus_version }}.tar.gz"
+      state: absent
 
 - name: Nexus rename
   shell: mv /opt/nexus-3.* {{ nexus_home }}

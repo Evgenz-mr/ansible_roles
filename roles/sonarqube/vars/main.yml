@@ -12,7 +12,7 @@
 
 sonar_user: sonar
 sonar_group: sonar
-sonar_home: /opt/{{ sonar_version_directory }}
+sonar_home: /opt/sonarqube
 
 sonar_unit: /etc/systemd/system/
 
@@ -22,6 +22,7 @@ sonar_version_directory: "sonarqube-{{ sonar_version }}"
 
 sonar_web_context: /sonar
 sonar_web_host: 192.168.88.243
+sonar_port: 9000
 
 postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm
 
@@ -30,5 +31,7 @@ postgre_conf: /var/lib/pgsql/10/data/
 # Postgres database connection details.
 sonar_postgres_username: sonar
 sonar_postgres_password: sonar
+sonar_jdbc_url: jdbc:postgresql://localhost/sonarqube
+
 
 
