@@ -1,5 +1,4 @@
 ---
-# tasks file for sonarqube
 - name: add group "sonar"
   group: name={{ sonar_group }}
 
@@ -9,9 +8,7 @@
 - name: Add own directory sonar
   shell: chown -R {{ sonar_user }}:{{ sonar_user }} {{ sonar_home }}
 
-
-
-- include_tasks: install Postgres database.yml
+- include_tasks: install Sonar.yml
 
 - name: Start service Postgres
   systemd:
@@ -19,3 +16,13 @@
     state: started
     enabled: yes
     daemon_reload: yes
+
+- include_tasks: install Postgres database.yml
+
+- name: Add rule for sonar port
+  firewalld:
+    port: {{ sonar_port }}/tcp
+    permanent: yes
+    state: enabled
+    notify:
+      - restart sonar
