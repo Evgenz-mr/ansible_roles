@@ -2,7 +2,7 @@
 # vars file for nexus
 
 nexus_home: /opt/nexus
-nexus_config: {{ nexus_home }}/etc/
+nexus_config: "{{ nexus_home }}/etc/"
 nexus_unit: /etc/systemd/system/
 nexus_data: /opt/nexusdata
 
