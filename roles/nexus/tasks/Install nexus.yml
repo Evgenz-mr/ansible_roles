@@ -9,7 +9,7 @@
 
 - name: Extract Nexus
   unarchive:
-    src: "/opt/latest-unix.tar.gz"
+    src: "/opt/nexus-*.tar.gz"
     dest: "/opt/"
 
 - name: Remove Nexus archive
