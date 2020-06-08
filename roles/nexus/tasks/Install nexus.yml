@@ -13,9 +13,9 @@
     dest: "/opt/"
 
 - name: Remove Nexus archive
-    file:
-      path: "/opt/{{ nexus_version }}.tar.gz"
-      state: absent
+  file:
+    path: "/opt/{{ nexus_version }}.tar.gz"
+    state: absent
 
 - name: Nexus rename
   shell: mv /opt/nexus-3.* {{ nexus_home }}
