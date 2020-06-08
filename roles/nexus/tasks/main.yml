@@ -16,7 +16,7 @@
 - name: Set Nexus as a System Service
   template:
     src: nexus.service
-    dest: {{ nexus_unit }}
+    dest: "{{ nexus_unit }}"
     mode: 0755
 
 - name: Start service Nexus
@@ -27,7 +27,7 @@
     daemon_reload: yes
 
 - firewalld:
-    port: {{ nexus_port }}/tcp
+    port: "{{ nexus_port }}/tcp"
     permanent: yes
     state: enabled
     notify:

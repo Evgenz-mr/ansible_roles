@@ -8,8 +8,8 @@
 
 - name: Extract Sonar
   unarchive:
-    src: /opt/{{ sonar_version_directory }}
-    dest: /opt/
+    src: "/opt/{{ sonar_version_directory }}"
+    dest: "/opt/"
 
 - name: Sonar rename
   shell: mv /opt/{{ sonar_version_directory }} {{ sonar_home }}
@@ -17,17 +17,17 @@
 - name: Set Unit for Sonar
   template:
     src: sonar.service
-    dest: {{ sonar_unit }}
+    dest: "{{ sonar_unit }}"
     mode: 0755
 
 - name: Set Properties for Sonar
   template:
     src: sonar.properties
-    dest: {{ sonar_properties }}
+    dest: "{{ sonar_properties }}"
     mode: 0755
 
 - name: Set RUN with user service Sonar
   template:
     src: sonar.sh
-    dest: {{ sonar_properties }}
+    dest: "{{ sonar_properties }}"
     mode: 0755

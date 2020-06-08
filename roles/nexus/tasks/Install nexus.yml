@@ -2,15 +2,15 @@
 
 - name: Download Nexus
   get_url:
-    url: {{ nexus_web }}
-    dest: /opt
+    url: "{{ nexus_web }}"
+    dest: "/opt"
     mode: 0755
 
 
 - name: Extract Nexus
   unarchive:
-    src: /opt/latest-unix.tar.gz
-    dest: /opt/
+    src: "/opt/latest-unix.tar.gz"
+    dest: "/opt/"
 
 - name: Remove Nexus archive
     file:

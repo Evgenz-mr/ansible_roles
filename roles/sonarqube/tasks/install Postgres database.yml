@@ -19,7 +19,7 @@
 - name: Set Postgres database conf
   template:
     src: pg_hba.conf
-    dest: {{ postgre_conf }}
+    dest: "{{ postgre_conf }}"
     mode: 0755
 
 - name: Execute cmd

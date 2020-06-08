@@ -21,7 +21,7 @@
 - name: Configure Jenkins
   template:
     src: jenkins
-    dest: {{ jenkins_config }}
+    dest: "{{ jenkins_config }}"
     mode: 0755
   notify:
     - restart jenkins
@@ -34,7 +34,7 @@
     daemon_reload: yes
 
 - firewalld:
-    port: {{ jenkins_port }}/tcp
+    port: "{{ jenkins_port }}/tcp"
     permanent: yes
     state: enabled
     notify:
