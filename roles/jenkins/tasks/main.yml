@@ -3,6 +3,9 @@
 - include_tasks: Install a list of packages.yml
 
 - name: Ensure Jenkins Repository is Installed
+  shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+
+- name: Ensure Jenkins Repository is Installed
   yum_repository:
     name: jenkins
     state: present
