@@ -3,7 +3,7 @@
 
 jenkins_config: /etc/sysconfig/
 
-jenkins-ci-key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
 jenkins_repo_in: /etc/yum.repos.d/jenkins.repo
 
 jenkins_repo_out: http://pkg.jenkins-ci.org/redhat/jenkins.repo

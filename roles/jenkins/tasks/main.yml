@@ -3,7 +3,7 @@
 - include_tasks: Install a list of packages.yml
 
 - name: Importing the repository key from Jenkins
-  shell: rpm --import {{ jenkins-ci-key }}
+  shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: Add the repository to the system
   shell: wget -O {{ jenkins_repo_in }} {{ jenkins_repo_out }}
