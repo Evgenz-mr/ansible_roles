@@ -6,11 +6,17 @@
 - name: add users "sonar"
   user: name={{ sonar_user }} group={{ sonar_group }} home="{{ sonar_home }}" createhome=no
 
+- name: Set Unit for Sonar
+  template:
+    src: sonar.service
+    dest: {{ sonar_unit }}
+    mode: 0755
+
 - include_tasks: install Postgres database.yml
 
-- name: Start service Nexus
+- name: Start service Postgres
   systemd:
-    name: nexus
+    name: postgresql-10
     state: started
     enabled: yes
     daemon_reload: yes

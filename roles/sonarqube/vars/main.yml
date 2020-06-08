@@ -14,6 +14,8 @@ sonar_user: sonar
 sonar_group: sonar
 sonar_home: /opt/{{ sonar_version_directory }}
 
+sonar_unit: /etc/systemd/system/
+
 sonar_version: 8.0
 sonar_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version }}.zip"
 sonar_version_directory: "sonarqube-{{ sonar_version }}"
@@ -25,8 +27,8 @@ postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-
 
 postgre_conf: /var/lib/pgsql/10/data/
 
-# MySQL database connection details.
-sonar_mysql_username: sonar
-sonar_mysql_password: sonar
+# Postgres database connection details.
+sonar_postgres_username: sonar
+sonar_postgres_password: sonar
 
 
