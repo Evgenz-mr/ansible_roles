@@ -14,12 +14,18 @@ sonar_user: sonar
 sonar_group: sonar
 sonar_home: /opt/sonarqube
 
+
+# Set Config
 sonar_unit: /etc/systemd/system/
+sonar_properties: "{{ sonar_home}}/conf/"
+sonar_run_user: "{{ sonar_home/bin/linux-x86-64/}}"
+
 
 sonar_version: 8.0
 sonar_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version }}.zip"
 sonar_version_directory: "sonarqube-{{ sonar_version }}"
 
+# For sonar.properties
 sonar_web_context: /sonar
 sonar_web_host: 192.168.88.243
 sonar_port: 9000
