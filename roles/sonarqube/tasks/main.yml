@@ -21,7 +21,7 @@
 
 - name: Add rule for sonar port
   firewalld:
-    port: {{ sonar_port }}/tcp
+    port: "{{ sonar_port }}/tcp"
     permanent: yes
     state: enabled
     notify:
