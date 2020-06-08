@@ -8,9 +8,9 @@
     key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: Download jenkins.repo
-    get_url:
-      url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
-      dest: /etc/yum.repos.d/jenkins.repo
+  get_url:
+    url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
 
 - name: Ensure JAVA is installed
   command: java -version
