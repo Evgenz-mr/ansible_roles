@@ -9,7 +9,7 @@
 
 - name: Extract Nexus
   unarchive:
-    src: "/opt/nexus-*.tar.gz"
+    src: "/opt/{{ nexus_version }}.tar.gz"
     dest: "/opt/"
 
 - name: Remove Nexus archive
