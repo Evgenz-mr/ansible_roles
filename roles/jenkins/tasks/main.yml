@@ -36,7 +36,8 @@
     enabled: yes
     daemon_reload: yes
 
-- firewalld:
+- name: add rule firewall on jenkins_port
+  firewalld:
     port: "{{ jenkins_port }}/tcp"
     permanent: yes
     state: enabled
