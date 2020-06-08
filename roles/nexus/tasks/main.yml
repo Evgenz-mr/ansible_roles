@@ -2,8 +2,11 @@
 # tasks file for nexus
 - include_tasks: Install nexus.yml
 
-- name: Add nexus user
-  shell: useradd --system --no-create-home {{ nexus_user }}
+- name: Adding user {{ nexus_user }}
+  user:
+    name: "{{ nexus_user }}"
+    group: "{{ nexus_group }}"
+    append: yes
 
 - name: Add own directory nexus
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
