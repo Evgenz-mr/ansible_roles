@@ -15,4 +15,4 @@
   shell: mv /opt/nexus-3.* {{ nexus_home }}
 
 - name: Nexusdata rename
-  shell: mv sonatype-work nexusdata
+  shell: mv /opt/sonatype-work /opt/nexusdata
