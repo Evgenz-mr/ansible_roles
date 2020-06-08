@@ -3,14 +3,14 @@
 - include_tasks: Install a list of packages.yml
 
 - name: Ensure Jenkins Repository is Installed
-    yum_repository:
-      name: jenkins
-      state: present
-      description: Official Jenkins Yum Repo
-      baseurl: http://pkg.jenkins.io/redhat
-      gpgkey: https://jenkins-ci.org/redhat/jenkins-ci.org.key
-      gpgcheck: yes
-      enabled: yes
+  yum_repository:
+    name: jenkins
+    state: present
+    description: Official Jenkins Yum Repo
+    baseurl: http://pkg.jenkins.io/redhat
+    gpgkey: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+    gpgcheck: yes
+    enabled: yes
 
 - name: Ensure JAVA is installed
   command: java -version
@@ -18,10 +18,10 @@
   changed_when: false
 
 - name: Ensure Jenkins is Installed
-    yum :
-      name: jenkins
-      update_cache: yes
-      state: present
+  yum :
+    name: jenkins
+    update_cache: yes
+    state: present
 
 - name: Configure Jenkins
   template:
