@@ -8,4 +8,5 @@
       - net-tools
       - vim
       - unzip
+      - deltarpm
     state: latest
