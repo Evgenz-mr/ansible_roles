@@ -6,8 +6,8 @@ nexus_config: "{{ nexus_home }}/etc/"
 nexus_unit: /etc/systemd/system/
 nexus_data: /opt/nexusdata
 
-nexus_web: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 nexus_version: nexus-3.24.0-02-unix
+nexus_web: https://download.sonatype.com/nexus/3/{{ nexus_version }}.tar.gz
 
 nexus_ip: 192.168.88.231
 nexus_port: 8081
