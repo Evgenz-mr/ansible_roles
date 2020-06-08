@@ -6,7 +6,7 @@
   shell: rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: Add the repository to the system
-  shell: wget -O {{ jenkins_repo_in }} {{ jenkins_repo_out }}
+  shell: curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
 
 - name: Ensure JAVA is installed
   command: java -version
@@ -16,7 +16,6 @@
 - name: Install the Jenkins
   yum:
     name: jenkins
-    state: latest
 
 - name: Configure Jenkins
   template:
