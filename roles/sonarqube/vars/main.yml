@@ -27,7 +27,7 @@ sonar_version_directory: "sonarqube-{{ sonar_version }}"
 
 # For sonar.properties
 sonar_web_context: /sonar
-sonar_web_host: 192.168.88.243
+sonar_web_host: 192.168.88.231
 sonar_port: 9000
 
 postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm

@@ -10,7 +10,7 @@ jenkins_repo_out: http://pkg.jenkins-ci.org/redhat/jenkins.repo
 
 jenkins_port: 8585
 
-jenkins_ip: 192.168.88.243
+jenkins_ip: 192.168.88.231
 
 jenkins_args: --prefix=/jenkins
 
