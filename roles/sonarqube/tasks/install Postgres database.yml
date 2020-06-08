@@ -1,0 +1,26 @@
+---
+
+- name: install repo for PostgreSQL
+    yum:
+      name: {{ postgreSQL_repo }}
+      state: present
+
+- name: install PostgreSQL
+    yum:
+      name: {{ item }}
+      state: latest
+    with_items:
+      - postgresql94-server
+      - postgresql94-contrib
+
+- name: Init the Postgres database
+  shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
+
+- name: Set Postgres database conf
+  template:
+    src: pg_hba.conf
+    dest: {{ postgre_conf }}
+    mode: 0755
+
+- name: Execute cmd
+  shell: sysctl -w vm.max_map_count=262144 & sysctl -w fs.file-max=65536 & ulimit -n 65536 & ulimit -u 4096

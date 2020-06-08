@@ -1,2 +1,32 @@
 ---
 # vars file for sonarqube
+
+#### Sonar version ####
+# (https://binaries.sonarsource.com/Distribution/sonarqube/)
+# 4
+# 5
+# 6
+# 7
+# 8
+#### ------------- ####
+
+sonar_user: sonar
+sonar_group: sonar
+sonar_home: /opt/{{ sonar_version_directory }}
+
+sonar_version: 8.0
+sonar_download_url: "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version }}.zip"
+sonar_version_directory: "sonarqube-{{ sonar_version }}"
+
+sonar_web_context: /sonar
+sonar_web_host: 192.168.88.243
+
+postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm
+
+postgre_conf: /var/lib/pgsql/10/data/
+
+# MySQL database connection details.
+sonar_mysql_username: sonar
+sonar_mysql_password: sonar
+
+
