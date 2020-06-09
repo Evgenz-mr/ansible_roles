@@ -41,6 +41,5 @@
 # IF SElinux disabled ignore_errors: yes
 - name: Setup SELinux policy for Nginx
   shell: setsebool -P httpd_can_network_connect 1
-  ignore_errors: yes
 
 - include_tasks: Check admin password.yml
