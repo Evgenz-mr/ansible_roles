@@ -16,3 +16,7 @@
 
 - name: Nexusdata rename
   shell: mv /opt/sonatype-work /opt/nexusdata
+  register: ret
+  failed_when: >
+    ("directory existed" in ret.stderr) or
+    ("file existed" in ret.stderr)
