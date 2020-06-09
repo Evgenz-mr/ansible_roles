@@ -9,13 +9,13 @@
     append: yes
   ignore_errors: yes
 
+- include_tasks: Configure nexus
+
 - name: Add own directory nexus
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
 
 - name: Add own directory nexusdata
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_data }}
-
-- include_tasks: Configure nexus
 
 - name: Set Nexus as a System Service
   template:
