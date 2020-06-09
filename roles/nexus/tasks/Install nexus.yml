@@ -19,4 +19,4 @@
   register: ret
   failed_when: >
     ("directory existed" in ret.stderr) or
-    ("file existed" in ret.stderr)
+    ("File exists" in ret.stderr)
