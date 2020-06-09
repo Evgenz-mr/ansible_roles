@@ -9,7 +9,7 @@
     append: yes
   ignore_errors: yes
 
-- include_tasks: Configure nexus
+- include_tasks: Configure nexus.yml
 
 - name: Add own directory nexus
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
