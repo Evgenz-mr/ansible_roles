@@ -7,6 +7,7 @@
     name: "{{ nexus_user }}"
     group: "{{ nexus_group }}"
     append: yes
+  ignore_errors: yes
 
 - name: Add own directory nexus
   shell: chown -R {{ nexus_user }}:{{ nexus_user }} {{ nexus_home }}
