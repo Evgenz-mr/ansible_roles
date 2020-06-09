@@ -30,12 +30,13 @@
     enabled: yes
     daemon_reload: yes
 
-- firewalld:
+- name: Add rule on firewall for Nexus
+  firewalld:
     port: "{{ nexus_port }}/tcp"
     permanent: yes
     state: enabled
-    notify:
-      - restart nexus
+  notify:
+    - restart nexus
 
 - name: Setup SELinux policy for Nginx
   shell: setsebool -P httpd_can_network_connect 1
