@@ -13,6 +13,7 @@
 
 - name: Del old version nexus
   shell: rm -rf -R /opt/nexus /opt/nexusdata
+  ignore_errors: yes
 
 - name: Nexus rename
   shell: mv /opt/nexus-3.* {{ nexus_home }}
