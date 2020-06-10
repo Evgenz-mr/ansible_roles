@@ -2,8 +2,8 @@
 
 - name: Download Sonar
   get_url:
-    url: {{ sonar_download_url }}
-    dest: /opt
+    url: "{{ sonar_download_url }}"
+    dest: "/opt"
     mode: 0755
 
 - name: Extract Sonar

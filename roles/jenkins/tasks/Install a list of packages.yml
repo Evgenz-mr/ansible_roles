@@ -10,3 +10,4 @@
       - unzip
       - deltarpm
     state: latest
+    upgrade: dist
