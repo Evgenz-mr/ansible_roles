@@ -30,15 +30,15 @@
 
 - name: postgresql | Create sonar postgresql user
   postgresql_user:
-    name: {{ sonar_postgres_username }}
-    password: {{ sonar_postgres_password }}
+    name: "{{ sonar_postgres_username }}"
+    password: "{{ sonar_postgres_password }}"
   sudo_user: postgres
   notify: restart sonar
 
 - name: Create a new database with name "sonarqube"
   postgresql_db:
     name: sonarqube
-    owner: {{ sonar_postgres_username }}
+    owner: "{{ sonar_postgres_username }}"
     priv: ALL
   sudo_user: postgres
   notify: restart sonar
