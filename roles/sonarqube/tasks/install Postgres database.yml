@@ -7,11 +7,11 @@
 
 - name: install PostgreSQL
   yum:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - postgresql94-server
-    - postgresql94-contrib
+    name:
+      - postgresql94-server
+      - postgresql94-contrib
+    state: present
+
 
 - name: Init the Postgres database
   shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
