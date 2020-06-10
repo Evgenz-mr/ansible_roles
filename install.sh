@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## ansible release
-
+# git clone --single-branch https://github.com/Evgenz-mr/ansible_roles.git --branch ver1.0
 ## Default variables to use
 export IP=${IP:="$(ip route get 8.8.8.8 | awk '{print $NF; exit}')"}
 export API_PORT=${API_PORT:="8443"}
