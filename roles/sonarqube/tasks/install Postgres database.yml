@@ -31,7 +31,6 @@
   postgresql_user:
     name: "{{ sonar_postgres_username }}"
     password: "{{ sonar_postgres_password }}"
-  sudo_user: root
   notify: restart sonar
 
 - name: Create a new database with name "sonarqube"
