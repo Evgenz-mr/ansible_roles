@@ -8,7 +8,7 @@
 
 - name: Remove Nexus archive
   file:
-    path: "/opt/{{ nexus_version }}.tar.gz"
+    path: "/opt/{{ sonar_version_directory }}.zip"
     state: absent
 
 - name: Del old version nexus

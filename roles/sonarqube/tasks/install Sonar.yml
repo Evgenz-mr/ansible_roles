@@ -11,6 +11,11 @@
     src: "/opt/{{ sonar_version_directory }}.zip"
     dest: "/opt/{{ sonar_version_directory }}"
 
+- name: Remove Nexus archive
+  file:
+    path: "/opt/{{ nexus_version }}.tar.gz"
+    state: absent
+
 - name: Sonar rename
   shell: mv /opt/{{ sonar_version_directory }} {{ sonar_home }}
 
