@@ -38,5 +38,4 @@
     name: sonarqube
     owner: "{{ sonar_postgres_username }}"
     priv: ALL
-  sudo_user: postgres
   notify: restart sonar
