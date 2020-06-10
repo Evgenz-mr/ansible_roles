@@ -8,8 +8,8 @@
 
 - name: Extract Sonar
   unarchive:
-    src: "/opt/{{ sonar_version_directory }}"
-    dest: "/opt/"
+    src: "/opt/{{ sonar_version_directory }}.zip"
+    dest: "/opt/{{ sonar_version_directory }}"
 
 - name: Sonar rename
   shell: mv /opt/{{ sonar_version_directory }} {{ sonar_home }}
