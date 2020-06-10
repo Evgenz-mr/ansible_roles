@@ -5,10 +5,10 @@
 - name: add users "sonar"
   user: name={{ sonar_user }} group={{ sonar_group }} home="{{ sonar_home }}" createhome=no
 
+- include_tasks: install Sonar.yml
+
 - name: Add own directory sonar
   shell: chown -R {{ sonar_user }}:{{ sonar_user }} {{ sonar_home }}
-
-- include_tasks: install Sonar.yml
 
 - name: Start service Postgres
   systemd:
