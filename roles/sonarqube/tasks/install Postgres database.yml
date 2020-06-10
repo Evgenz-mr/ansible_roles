@@ -1,17 +1,17 @@
 ---
 
 - name: install repo for PostgreSQL
-    yum:
-      name: "{{ postgreSQL_repo }}"
-      state: present
+  yum:
+    name: "{{ postgreSQL_repo }}"
+    state: present
 
 - name: install PostgreSQL
-    yum:
-      name: "{{ item }}"
-      state: latest
-    with_items:
-      - postgresql94-server
-      - postgresql94-contrib
+  yum:
+     name: "{{ item }}"
+    state: latest
+  with_items:
+    - postgresql94-server
+    - postgresql94-contrib
 
 - name: Init the Postgres database
   shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
