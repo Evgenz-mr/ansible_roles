@@ -1,16 +1,10 @@
 ---
-
-- name: Download Sonar
-  get_url:
-    url: "{{ sonar_download_url }}"
+- name: Extract Sonar
+  unarchive:
+    src: "{{ sonar_download_url }}"
     dest: "/opt/"
     remote_src: yes
     mode: 0755
-
-- name: Extract Sonar
-  unarchive:
-    src: "/opt/{{ sonar_version_directory }}.zip"
-    dest: "/opt/{{ sonar_version_directory }}"
 
 - name: Remove Nexus archive
   file:
