@@ -7,7 +7,7 @@
 
 - name: install PostgreSQL
   yum:
-     name: "{{ item }}"
+    name: "{{ item }}"
     state: latest
   with_items:
     - postgresql94-server
