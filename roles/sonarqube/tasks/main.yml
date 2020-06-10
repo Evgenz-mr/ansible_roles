@@ -10,14 +10,14 @@
 - name: Add own directory sonar
   shell: chown -R {{ sonar_user }}:{{ sonar_user }} {{ sonar_home }}
 
+- include_tasks: install Postgres database.yml
+
 - name: Start service Postgres
   systemd:
     name: postgresql-10
     state: started
     enabled: yes
     daemon_reload: yes
-
-- include_tasks: install Postgres database.yml
 
 - name: Add rule for sonar port
   firewalld:
