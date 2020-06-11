@@ -7,10 +7,11 @@
 
 - name: install PostgreSQL
   yum:
-    name:
-      - postgresql94-server
-      - postgresql94-contrib
-    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - postgresql94-server
+    - postgresql94-contrib
 
 - name: Init the Postgres database
   shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
@@ -18,7 +19,7 @@
 - name: Set Postgres database conf
   template:
     src: pg_hba.conf
-    dest: "{{ postgre_conf }}"
+    dest: "{{ postgres_conf }}"
     mode: 0755
 
 - name: Execute cmd

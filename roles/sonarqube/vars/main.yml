@@ -32,7 +32,7 @@ sonar_port: 9000
 
 postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm
 
-postgre_conf: /var/lib/pgsql/10/data/
+postgres_conf: /var/lib/pgsql/10/data/
 
 # Postgres database connection details.
 sonar_postgres_username: sonar
