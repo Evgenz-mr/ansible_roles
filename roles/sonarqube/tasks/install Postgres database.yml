@@ -5,14 +5,9 @@
       - java-11-openjdk-devel
     state: present
 
-- name: install repo for PostgreSQL
-  yum:
-    name: "{{ postgreSQL_repo }}"
-    state: present
-
 - name: install PostgreSQL
   yum:
-    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+    name: "{{ postgreSQL_repo }}"
     state: present
 
 - name: Install PostgreSQL
