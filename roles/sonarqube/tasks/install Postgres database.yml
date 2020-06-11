@@ -34,6 +34,8 @@
   template:
     src: pg_hba.conf
     dest: "{{ postgres_conf }}"
+    owner: postgres
+    group: postgres
     mode: 0755
 
 - name: Enable and Start PostgreSQL
@@ -46,21 +48,8 @@
 - name: Execute cmd
   shell: sysctl -w vm.max_map_count=262144 & sysctl -w fs.file-max=65536 & ulimit -n 65536 & ulimit -u 4096
 
-- name: Sleep for 40 seconds and continue with play
-  wait_for: timeout=40
+- name: Sleep for 60 seconds and continue with play
+  wait_for: timeout=60
 
 - name: Change password for user postgres
   shell: echo "Passwd0rD" | passwd --stdin postgres
-
-- name: postgresql | Create sonar postgresql user
-  postgresql_user:
-    name: "{{ sonar_postgres_username }}"
-    password: "{{ sonar_postgres_password }}"
-  notify: restart sonar
-
-- name: Create a new database with name "sonarqube"
-  postgresql_db:
-    name: sonarqube
-    owner: "{{ sonar_postgres_username }}"
-    priv: ALL
-  notify: restart sonar

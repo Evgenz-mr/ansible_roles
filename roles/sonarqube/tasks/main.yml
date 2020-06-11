@@ -1,23 +1,21 @@
 ---
+
+- include_tasks: install_java.yml
+
 - name: add group "sonar"
   group: name={{ sonar_group }}
 
 - name: add users "sonar"
   user: name={{ sonar_user }} group={{ sonar_group }} home="{{ sonar_home }}" createhome=no
 
+- include_tasks: install Postgres database.yml
+
 - include_tasks: install Sonar.yml
+
+- include_tasks: configure_psql.yml
 
 - name: Add own directory sonar
   shell: chown -R {{ sonar_user }}:{{ sonar_user }} {{ sonar_home }}
-
-- include_tasks: install Postgres database.yml
-
-- name: Start service Postgres
-  systemd:
-    name: postgresql-10
-    state: started
-    enabled: yes
-    daemon_reload: yes
 
 - name: Add rule for sonar port
   firewalld:

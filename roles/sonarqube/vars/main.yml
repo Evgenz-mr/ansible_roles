@@ -35,6 +35,7 @@ postgreSQL_repo: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-
 postgres_conf: /var/lib/pgsql/9.6/data/pg_hba.conf
 
 # Postgres database connection details.
+psql_sonar_db: sonarqube
 sonar_postgres_username: sonar
 sonar_postgres_password: sonar
 sonar_jdbc_url: jdbc:postgresql://localhost/sonarqube
