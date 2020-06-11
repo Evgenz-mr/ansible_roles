@@ -38,7 +38,7 @@
   notify:
     - restart nexus
 
-- name: Sleep for 40 seconds and continue with play
-  wait_for: timeout=40
+- name: Sleep for 60 seconds and continue with play
+  wait_for: timeout=60
 
 - include_tasks: Check admin password.yml
