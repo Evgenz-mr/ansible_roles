@@ -12,18 +12,23 @@
 
 - name: install PostgreSQL
   yum:
-    name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
     state: present
 
-- name: Enscure database postgres
+- name: Install PostgreSQL
   yum:
-    name:
-      - postgresql10-server
-      - postgresql10-contrib
-    state: present
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - postgresql96-server
+    - postgresql96-contrib
+  become: true
+  register: installed_psql
 
-- name: Init the Postgres database
-  shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
+- name: Intialize PostgreSQL DB
+  command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+  become: true
+  when: installed_psql.changed
 
 - name: Set Postgres database conf
   template:
@@ -31,8 +36,18 @@
     dest: "{{ postgres_conf }}"
     mode: 0755
 
+- name: Enable and Start PostgreSQL
+  service:
+    name: postgresql-9.6
+    state: started
+    enabled: yes
+  become: true
+
 - name: Execute cmd
   shell: sysctl -w vm.max_map_count=262144 & sysctl -w fs.file-max=65536 & ulimit -n 65536 & ulimit -u 4096
+
+- name: Sleep for 40 seconds and continue with play
+  wait_for: timeout=40
 
 - name: Change password for user postgres
   shell: echo "Passwd0rD" | passwd --stdin postgres
