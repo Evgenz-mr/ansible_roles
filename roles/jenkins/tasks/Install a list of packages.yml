@@ -9,4 +9,5 @@
       - vim
       - unzip
       - deltarpm
+      - *
     state: latest
