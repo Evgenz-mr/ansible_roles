@@ -5,9 +5,14 @@
       - java-11-openjdk-devel
     state: present
 
-- name: install PostgreSQL
+- name: install server PostgreSQL
   yum:
-    name: "{{ postgreSQL_repo }}"
+    name: "{{ postgreSQL_server }}"
+    state: present
+
+- name: install server PostgreSQL
+  yum:
+    name: "{{ postgreSQL_contrib }}"
     state: present
 
 - name: Install PostgreSQL
