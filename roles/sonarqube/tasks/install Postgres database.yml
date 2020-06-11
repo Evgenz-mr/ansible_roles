@@ -1,4 +1,10 @@
 ---
+- name: Install java 11
+  yum:
+    name:
+      - openjdk-11-jdk
+      - openjdk-11-jre
+    state: present
 
 - name: install repo for PostgreSQL
   yum:
