@@ -10,6 +10,13 @@
     name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     state: present
 
+- name: Enscure database postgres
+  yum:
+    name:
+      - postgresql10-server
+      - postgresql10-contrib
+    state: present
+
 - name: Init the Postgres database
   shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
 
