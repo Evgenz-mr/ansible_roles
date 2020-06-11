@@ -3,16 +3,19 @@
   yum:
     name: "java-11-openjdk-devel"
     state: present
+  become: true
 
 - name: install packages PostgreSQL
   yum:
-    name: http://mirror.centos.org/centos/7/os/x86_64/Packages/postgresql-libs-9.2.24-2.el7.x86_64.rpm
+    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-libs-9.6.18-1PGDG.rhel7.x86_64.rpm
     state: present
+  become: true
 
 - name: install server PostgreSQL
   yum:
     name: "{{ postgreSQL_server }}"
     state: present
+  become: true
 
 - name: install server PostgreSQL
   yum:
