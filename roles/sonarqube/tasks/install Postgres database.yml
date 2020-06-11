@@ -5,9 +5,6 @@
     state: present
   become: true
 
-- name: upgrade all packages
-  yum: name=* state=latest
-
 - name: install packages PostgreSQL
   yum:
     name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-libs-9.6.18-1PGDG.rhel7.x86_64.rpm

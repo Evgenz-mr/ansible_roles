@@ -9,5 +9,7 @@
       - vim
       - unzip
       - deltarpm
-      - *
     state: latest
+
+- name: upgrade all packages
+  yum: name=* state=latest
