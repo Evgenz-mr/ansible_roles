@@ -11,13 +11,7 @@
     state: present
   become: true
 
-- name: install server PostgreSQL
-  yum:
-    name: "{{ postgreSQL_server }}"
-    state: present
-  become: true
-
-- name: install server PostgreSQL
+- name: install contrib PostgreSQL
   yum:
     name: "{{ postgreSQL_contrib }}"
     state: present
