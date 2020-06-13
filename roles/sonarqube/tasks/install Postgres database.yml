@@ -16,8 +16,7 @@
     name: '{{ item }}'
     state: latest
   with_items:
-    - postgresql96-server
-    - postgresql96-contrib
+    - postgresql-server
   become: true
   register: installed_psql
 
