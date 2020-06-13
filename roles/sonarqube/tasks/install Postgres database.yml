@@ -7,8 +7,8 @@
 
 - name: install packages PostgreSQL
   yum:
-    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-libs-9.6.18-1PGDG.rhel7.x86_64.rpm
-    state: present
+    name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    state: latest
   become: true
 
 - name: Install PostgreSQL
@@ -16,12 +16,13 @@
     name: '{{ item }}'
     state: latest
   with_items:
-    - postgresql-server
+    - postgresql10-server
+    - postgresql10-contrib
   become: true
   register: installed_psql
 
 - name: Intialize PostgreSQL DB
-  command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+  command: /usr/pgsql-10/bin/postgresql96-setup initdb
   become: true
   when: installed_psql.changed
 
@@ -35,7 +36,7 @@
 
 - name: Enable and Start PostgreSQL
   service:
-    name: postgresql-9.6
+    name: postgresql-10
     state: started
     enabled: yes
   become: true
