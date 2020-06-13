@@ -11,12 +11,6 @@
     state: present
   become: true
 
-- name: install contrib PostgreSQL
-  yum:
-    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-contrib-9.6.18-1PGDG.rhel7.x86_64.rpm
-    state: present
-  become: true
-
 - name: Install PostgreSQL
   yum:
     name: '{{ item }}'
