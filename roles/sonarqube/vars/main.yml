@@ -33,7 +33,7 @@ sonar_port: 9000
 postgreSQL_server: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-libs-9.6.18-1PGDG.rhel7.x86_64.rpm
 postgreSQL_contrib: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/postgresql96-contrib-9.6.18-1PGDG.rhel7.x86_64.rpm
 
-postgres_conf: /var/lib/pgsql/9.6/data/pg_hba.conf
+postgres_conf: /var/lib/pgsql/10/data/pg_hba.conf
 
 # Postgres database connection details.
 psql_sonar_db: sonarqube
