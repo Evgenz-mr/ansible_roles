@@ -17,7 +17,9 @@
 - name: Intialize PostgreSQL DB
   command: /usr/pgsql-10/bin/postgresql-10-setup initdb
   become: true
-  when: installed_psql.changed
+
+- name: Sleep for 10 seconds and continue with play
+  wait_for: timeout=10
 
 - name: Copies correct PostgreSQL config file over
   copy:
