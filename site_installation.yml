@@ -4,12 +4,6 @@
 - hosts: Linux1
   remote_user: root
 
-- name: Set authorized key taken from file
-  authorized_key:
-    user: charlie
-    state: present
-    key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-
   roles:
    - java 
    - nginx
