@@ -24,7 +24,7 @@
 - name: Copies correct PostgreSQL config file over
   copy:
     src: pg_hba.conf
-    dest: /var/lib/pgsql/10/data/pg_hba.conf
+    dest: /var/lib/pgsql/10/data/
     owner: root
     group: root
     mode: 0755
