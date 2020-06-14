@@ -2,6 +2,11 @@
 # tasks file for nexus
 - include_tasks: Install nexus.yml
 
+- name: Add group {{ nexus_group }}
+  group:
+    name: {{ nexus_group }}
+    state: present
+
 - name: Adding user {{ nexus_user }}
   user:
     name: "{{ nexus_user }}"
