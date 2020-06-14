@@ -15,7 +15,7 @@
   register: installed_psql
 
 - name: Intialize PostgreSQL DB
-  command: /usr/pgsql-10/bin/postgresql10-setup initdb
+  command: /usr/pgsql-10/bin/postgresql-10-setup initdb
   become: true
   when: installed_psql.changed
 
