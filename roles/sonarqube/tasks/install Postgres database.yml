@@ -1,15 +1,8 @@
 ---
-- name: Install java 11
-  yum:
-    name: "java-11-openjdk-devel"
-    state: present
-  become: true
-
-- name: install packages PostgreSQL
+- name: Install PostgreSQL RPM
   yum:
     name: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     state: latest
-  become: true
 
 - name: Install PostgreSQL
   yum:
@@ -22,17 +15,18 @@
   register: installed_psql
 
 - name: Intialize PostgreSQL DB
-  command: /usr/pgsql-10/bin/postgresql-10-setup initdb
+  command: /usr/pgsql-10/bin/postgresql10-setup initdb
   become: true
   when: installed_psql.changed
 
-- name: Set Postgres database conf
-  template:
+- name: Copies correct PostgreSQL config file over
+  copy:
     src: pg_hba.conf
-    dest: "{{ postgres_conf }}"
-    owner: postgres
-    group: postgres
-    mode: 0755
+    dest: /var/lib/pgsql/10/data/pg_hba.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
 
 - name: Enable and Start PostgreSQL
   service:
@@ -40,12 +34,3 @@
     state: started
     enabled: yes
   become: true
-
-- name: Execute cmd
-  shell: sysctl -w vm.max_map_count=262144 & sysctl -w fs.file-max=65536 & ulimit -n 65536 & ulimit -u 4096
-
-- name: Sleep for 60 seconds and continue with play
-  wait_for: timeout=60
-
-- name: Change password for user postgres
-  shell: echo "Passwd0rD" | passwd --stdin postgres
