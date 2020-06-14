@@ -4,7 +4,7 @@
 
 - name: Add group {{ nexus_group }}
   group:
-    name: {{ nexus_group }}
+    name: "{{ nexus_group }}"
     state: present
 
 - name: Adding user {{ nexus_user }}
