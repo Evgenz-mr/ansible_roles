@@ -1,8 +1,4 @@
 ---
-- name: Install Java
-  yum:
-    name: '{{ item }}'
-    state: latest
-  with_items:
-    - java-11-openjdk-devel
+- name: Install Java 1.8
+  yum: name=java-11-openjdk-devel state=latest
   become: true
