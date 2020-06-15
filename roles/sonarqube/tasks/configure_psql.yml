@@ -8,6 +8,6 @@
 
 
 - name: Create postgres user and DB for Sonarqube
-    become: yes
-    become_user: postgres
-    command: "/tmp/dbSetup.sh {{ sonar_postgres_password }}"
+  become: yes
+  become_user: postgres
+  command: "/tmp/dbSetup.sh {{ sonar_postgres_password }}"
