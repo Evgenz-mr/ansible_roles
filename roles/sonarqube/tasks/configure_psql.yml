@@ -3,7 +3,6 @@
 - name: Create Database for SonarQube
   postgresql_db:
     name: "{{ psql_sonar_db }}"
-    encoding: UTF-8
 
 - name: Create Sonar User
   postgresql_user:
