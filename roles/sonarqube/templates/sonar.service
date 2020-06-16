@@ -5,7 +5,6 @@ After=syslog.target network.target
 [Service]
 Type=forking
 
-Environment="JAVA_HOME=/usr/bin/"
 ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
 ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
 LimitNOFILE=65536
