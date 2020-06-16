@@ -53,6 +53,12 @@
     dest: "{{ wildfly_service }}"
     mode: 0755
 
+- name: Set wildfly config
+  template:
+    src: standalone.sh
+    dest: "{{ wildfly_config }}"
+    mode: 0755
+
 - name: Start service the Wildfly
   systemd:
     name: wildfly
