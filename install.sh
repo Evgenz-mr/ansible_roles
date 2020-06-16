@@ -2,9 +2,18 @@
 
 ## ansible release
 # git clone --single-branch https://github.com/Evgenz-mr/ansible_roles.git --branch ver1.0
-## Default variables to use
-export IP=${IP:="$(ip route get 8.8.8.8 | awk '{print $NF; exit}')"}
-export API_PORT=${API_PORT:="8443"}
+
+## VARIABELS
+GIT=https://github.com/Evgenz-mr/ansible_roles.git
+BRANCH=ver1.0
+
+# for ip list
+IP_LIST=/tmp/list
+
+SSH_PUB_KEY=~/.ssh/id_rsa.pub
+USER=root
+HOST=192.168.88.228
+PASSWD=root
 
 # install update
 yum update -y
@@ -16,13 +25,23 @@ yum install -y curl wget git zile nano net-tools docker-1.13.1 \
 # install epel
 yum -y install epel-release
 
-# install the Ansible
-yum install ansible
+### copy passwd ssh IP_LIST###
+#if [ ! -f $IP_LIST ]
+#then
+#    echo "=======STARTING COPY SSH ID========"
+#    for ip in `cat $IP_LIST`; do
+#    sshpass -p "$PASSWD" ssh-copy-id -o StrictHostKeyChecking=no $USER@$ip
+#done
+### --------------- ###
+
+### copy passwd ssh 1 server
 ssh-keygen -t rsa
 service sshd restart
-ssh-copy-id -i ~/.ssh/id_rsa.pub $IP
+sshpass -p "$PASSWD" ssh-copy-id -o StrictHostKeyChecking=no $USER@$HOST
+
+# install the Ansible
+yum install ansible
 
 # configure Ansible
-git clone https://github.com/Evgenz-mr/ansible_roles.git
-cd ansible_roles
-ansible-playbook site_installation.yml
+git clone --single-branch $GIT --branch $BRANCH
+ansible-playbook ansible_roles/site_installation.yml
