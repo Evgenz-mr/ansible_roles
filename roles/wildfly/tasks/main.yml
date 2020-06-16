@@ -39,7 +39,7 @@
     mode: 0755
 
 - name: script executable
-  shell: "{{ wildfly_home }}/bin/*.sh"
+  shell: "sh -c '{{ wildfly_home }}/bin/*.sh'"
 
 - name: Set configuration file the wildfly
   template:
