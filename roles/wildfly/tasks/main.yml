@@ -1,2 +1,78 @@
 ---
 # tasks file for wildfly
+- name: Add group {{ wildfly_group }}
+  group:
+    name: "{{ wildfly_group }}"
+    state: present
+
+- name: Adding user {{ wildfly_user }}
+  user:
+    name: "{{ wildfly_user }}"
+    group: "{{ wildfly_group }}"
+    append: yes
+  ignore_errors: yes
+
+- name: Extract Wildfly
+  unarchive:
+    src: "{{ wildfly_url }}"
+    dest: "/opt/"
+    remote_src: yes
+    mode: 0755
+
+- name: Create a symbolic link wildfly
+  file:
+    src: "/opt/wildfly-{{ wildfly_version }}"
+    dest: "/opt/wildfly"
+    owner: "{{ wildfly_user }}"
+    group: "{{ wildfly_group }}"
+    state: link
+
+- name: Creates directory
+  file:
+    path: "/etc/wildfly"
+    state: directory
+
+- name: Set wildfly
+  template:
+    src: launch.sh
+    dest: "{{ wildfly_home }}/bin/"
+    mode: 0755
+
+- name: script executable
+  shell: "{{ wildfly_home }}/bin/*.sh"
+
+- name: Set configuration file the wildfly
+  template:
+    src: wildfly.conf
+    dest: "/etc/wildfly/"
+    mode: 0755
+
+- name: Set service the wildfly
+  template:
+    src: wildfly.service
+    dest: "{{ wildfly_service }}"
+    mode: 0755
+
+- name: Start service the Wildfly
+  systemd:
+    name: wildfly
+    state: started
+    enabled: yes
+    daemon_reload: yes
+
+- name: Add rule on firewall for Wildfly
+  firewalld:
+    port: "{{ wildfly_port }}/tcp"
+    permanent: yes
+    state: enabled
+  notify:
+    - restart wildfly
+
+- name: Add rule on firewall for Wildfly manager
+  firewalld:
+    port: "{{ wildfly_manager }}/tcp"
+    permanent: yes
+    state: enabled
+  notify:
+    - restart wildfly
+

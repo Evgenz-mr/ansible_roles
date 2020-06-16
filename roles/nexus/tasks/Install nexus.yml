@@ -6,11 +6,6 @@
     remote_src: yes
     mode: 0755
 
-- name: Remove Nexus archive
-  file:
-    path: "/opt/{{ sonar_version_directory }}.zip"
-    state: absent
-
 - name: Del old version nexus
   shell: rm -rf -R /opt/nexus /opt/nexusdata
   ignore_errors: yes
