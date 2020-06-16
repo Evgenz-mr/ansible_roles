@@ -39,7 +39,7 @@ postgres_conf: /var/lib/pgsql/10/data/pg_hba.conf
 psql_sonar_db: sonarqube
 sonar_postgres_username: sonar
 sonar_postgres_password: sonar
-sonar_jdbc_url: jdbc:postgresql://localhost/sonarqube
+sonar_jdbc_url: jdbc:postgresql://localhost/sonar
 
 
 

@@ -15,6 +15,12 @@
     dest: "{{ sonar_unit }}"
     mode: 0755
 
+- name: Set sysctl ram for Sonar
+  template:
+    src: sysctl.conf
+    dest: "/etc/"
+    mode: 0755
+
 - name: Set Properties for Sonar
   template:
     src: sonar.properties
