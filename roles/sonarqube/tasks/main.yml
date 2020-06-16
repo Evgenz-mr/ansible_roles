@@ -17,7 +17,7 @@
 - name: Add own directory sonar
   shell: chown -R {{ sonar_user }}:{{ sonar_user }} {{ sonar_home }}
 
-- name: Add rule for sonar port
+- name: Add rule for {{ sonar_port }}
   firewalld:
     port: "{{ sonar_port }}/tcp"
     permanent: yes
