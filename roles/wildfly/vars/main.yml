@@ -9,7 +9,7 @@
 # 18.0.0.Final
 
 wildfly_version: 20.0.0.Final
-wildfly_url: https://download.jboss.org/wildfly/{{ wildfly_version }}/wildfly-{{ wildfly_version }}.tar.gz
+wildfly_url: https://download.jboss.org/wildfly/{{ wildfly_version }}/wildfly-"{{ wildfly_version }}".tar.gz
 
 wildfly_host: 192.168.88.227
 wildfly_port: 9080
@@ -20,6 +20,6 @@ wildfly_group: wildfly
 wildfly_user: wildfly
 wildfly_password: wildfly
 
-wildfly_config: {{ wildfly_home }}/standalone/configuration/
+wildfly_config: "{{ wildfly_home }}"/standalone/configuration/
 wildfly_service: /etc/systemd/system/
 
