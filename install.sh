@@ -19,7 +19,7 @@ PASSWD=root
 yum update -y
 
 # install the following base packages
-yum install -y curl wget git zile nano net-tools docker-1.13.1 \
+yum install -y curl wget git nano net-tools docker-1.13.1 \
                 python-cryptography python2-pip python-devel  python-passlib \
 
 # install epel
