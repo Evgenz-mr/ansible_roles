@@ -4,12 +4,14 @@
 # git clone --single-branch https://github.com/Evgenz-mr/ansible_roles.git --branch ver1.0
 
 ## VARIABELS
+# for git
 GIT=https://github.com/Evgenz-mr/ansible_roles.git
 BRANCH=ver1.0
 
 # for ip list
 IP_LIST=/tmp/list
 
+# for ssh copy
 SSH_PUB_KEY=~/.ssh/id_rsa.pub
 USER=root
 HOST=192.168.88.228
