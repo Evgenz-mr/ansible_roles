@@ -32,3 +32,6 @@
     src: sonar.sh
     dest: "{{ sonar_properties }}"
     mode: 0755
+
+- name: Set vm.max_map
+  shell: "sysctl -w vm.max_map_count=262144"
