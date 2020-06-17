@@ -14,7 +14,7 @@
 
 - name: Create application users
   shell: >
-    {{ wildfly_dir }}/bin/add-user.sh -s -a
+    {{ wildfly_home }}/bin/add-user.sh -s -a
     {{ item.name }} {{ item.password }} && touch {{ wildfly_home }}/.app-users.{{ item.name }}.provisioned
   with_items: "{{ wildfly_app_users }}"
   become: True
