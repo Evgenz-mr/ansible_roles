@@ -23,6 +23,6 @@ wildfly_password: wildfly
 wildfly_config: "{{ wildfly_home }}/standalone/configuration/"
 wildfly_service: /etc/systemd/system/
 
-wildfly_management_users: []
-wildfly_app_users: []
+wildfly_management_users: ["Evgen","Matrix789!"]
+wildfly_app_users: ["dev", "Matrix789!"]
 
