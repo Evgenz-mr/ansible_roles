@@ -25,9 +25,9 @@ wildfly_service: /etc/systemd/system/
 
 wildfly_management_users:
   - name: Evgen
-  - password: Matrix789!
+    password: Matrix789!
 
 wildfly_app_users:
   - name: dev
-  - password: Matrix789!
+    password: Matrix789!
 
