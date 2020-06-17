@@ -28,6 +28,6 @@ wildfly_management_users:
     password: Matrix789!
 
 wildfly_app_users:
-  - name: "dev"
-    password: "Matrix789!"
+  - name: dev
+    password: Matrix789!
 
