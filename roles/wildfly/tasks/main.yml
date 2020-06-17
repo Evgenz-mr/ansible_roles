@@ -27,6 +27,9 @@
     group: "{{ wildfly_group }}"
     state: link
 
+- name: Add own directory {{ wildfly_home }}
+  shell: "chown -RH {{ wildfly_user }}: {{ wildfly_home }}"
+
 - name: Creates directory
   file:
     path: "/etc/wildfly"
@@ -40,6 +43,7 @@
 
 - name: script executable
   shell: "sh -c '{{ wildfly_home }}/bin/*.sh'"
+  ignore_errors: yes
 
 - name: Set configuration file the wildfly
   template:
@@ -55,7 +59,7 @@
 
 - name: Set wildfly config
   template:
-    src: standalone.sh
+    src: standalone.xml
     dest: "{{ wildfly_config }}"
     mode: 0755
 
@@ -81,4 +85,3 @@
     state: enabled
   notify:
     - restart wildfly
-
