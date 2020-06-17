@@ -9,7 +9,7 @@
   become: True
   become_user: '{{ wildfly_user }}'
   args:
-    creates: "{{ wildfly_dir }}/.mgmt-users.{{ item.name }}.provisioned"
+    creates: "{{ wildfly_home }}/.mgmt-users.{{ item.name }}.provisioned"
   when: wildfly_management_users | length > 0
   no_log: True
 
@@ -27,7 +27,7 @@
 
 - name: Enforce secure permissions on password files
   file:
-    path: "{{ wildfly_dir }}/standalone/configuration/{{ item }}"
+    path: "{{ wildfly_home }}/standalone/configuration/{{ item }}"
     owner: "{{ wildfly_user }}"
     group: "{{ wildfly_group }}"
     mode: "0600"
