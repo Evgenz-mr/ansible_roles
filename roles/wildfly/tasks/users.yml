@@ -3,25 +3,17 @@
 
 - name: Create management users
   shell: >
-    {{ wildfly_home }}/bin/add-user.sh -s
-    {{ item.name }} {{ item.password }} && touch {{ wildfly_home }}/.mgmt-users.{{ item.name }}.provisioned
+    {{ wildfly_home }}/bin/add-user.sh -s {{ item.name }} {{ item.password }}
   with_items: "{{ wildfly_management_users }}"
   become: True
   become_user: '{{ wildfly_user }}'
-  args:
-    creates: "{{ wildfly_home }}/.mgmt-users.{{ item.name }}.provisioned"
-  when: wildfly_management_users | length > 0
 
 - name: Create application users
   shell: >
-    {{ wildfly_home }}/bin/add-user.sh -s -a
-    {{ item.name }} {{ item.password }} && touch {{ wildfly_home }}/.app-users.{{ item.name }}.provisioned
+    {{ wildfly_home }}/bin/add-user.sh -s -a {{ item.name }} {{ item.password }}
   with_items: "{{ wildfly_app_users }}"
   become: True
   become_user: '{{ wildfly_user }}'
-  args:
-    creates: "{{ wildfly_home }}/.app-users.{{ item.name }}.provisioned"
-  when: wildfly_app_users | length > 0
 
 - name: Enforce secure permissions on password files
   file:
