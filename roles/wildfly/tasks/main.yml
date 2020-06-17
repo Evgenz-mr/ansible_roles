@@ -70,6 +70,8 @@
     enabled: yes
     daemon_reload: yes
 
+- include_tasks: users.yml
+
 - name: Add rule on firewall for Wildfly
   firewalld:
     port: "{{ wildfly_port }}/tcp"
