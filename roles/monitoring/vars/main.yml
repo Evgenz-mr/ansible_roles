@@ -1,0 +1,6 @@
+---
+# vars file for monitoring
+
+grafana_repo: /etc/yum.repos.d/
+
+influxdb_repo: /etc/yum.repos.d/
