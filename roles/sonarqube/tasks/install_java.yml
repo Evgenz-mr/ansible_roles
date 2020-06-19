@@ -4,4 +4,4 @@
   become: true
 
 - name: Change java version
-  shell: "echo "2" | update-alternatives --config java | echo "success""
+  shell: "echo '2' | update-alternatives --config java | echo 'success'"
