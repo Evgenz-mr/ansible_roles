@@ -29,5 +29,5 @@ tomcat_user: tomcat
 http_port: 80
 
 #log in tomcat management
-username: student
+username: Evgen
 password: 1234
