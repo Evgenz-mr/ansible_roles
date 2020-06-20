@@ -31,9 +31,8 @@
 
 - name: GRAFANA | Install grafana
   yum:
-    name: "grafana{{ (grafana_version == 'latest') | ternary('', '=' + grafana_version) }}"
-    state: "{{ (grafana_version == 'latest') | ternary('latest', 'present') }}"
-    force: true
+    name: grafana
+    state: present
 
 - name: Links grafana dir to /
   file:

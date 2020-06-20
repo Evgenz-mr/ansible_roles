@@ -22,7 +22,7 @@ grafana_dashboards_path: "{{ grafana_data_path }}/dashboards"
 
 # Port & host
 grafana_host: "{{ ansible_nodename }}"
-grafana_port: 8080
+grafana_port: 9999
 grafana_domain: "{{ ansible_domain }}"
 
 ## DATABASE
