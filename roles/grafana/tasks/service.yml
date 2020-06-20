@@ -3,8 +3,8 @@
 - name: GRAFANA | Configuring service
   systemd:
     name: grafana-server
-    state: "{{ grafana_service_state }}"
-    enabled: "{{ grafana_service_enabled }}"
+    state: started
+    enabled: yes
     daemon_reload: yes
 
 - name: GRAFANA | Wait for service listening
