@@ -3,7 +3,7 @@
 
 nginx_conf: /etc/nginx/conf.d/
 
-server_name: 192.168.88.224
+server_name: 192.168.88.223
 
 jenkins_port: 8585
 tomcat_port: 8080
