@@ -1,11 +1,11 @@
 ---
 - name: Add Grafana repo key
-  yum_key:
+  rpm_key:
     url: https://packagecloud.io/gpg.key
     state: present
 
 - name: Add Grafana apt repo
-  yum_repository:
+  rpm_repository:
     repo: "deb https://packagecloud.io/grafana/stable/debian/ jessie main"
     state: present
 
