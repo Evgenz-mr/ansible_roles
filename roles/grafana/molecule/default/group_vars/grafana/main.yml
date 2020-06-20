@@ -1,0 +1,28 @@
+---
+
+## MYSQL
+mysql_root_password: secret
+mysql_databases:
+  - name: 'grafana'
+    encoding: 'utf8'
+
+mysql_users:
+  - name: 'grafana'
+    password: 'grafana'
+    priv:
+      - grafana.*:ALL
+
+mysql_datadir: /var/lib/mysql
+
+## GRAFANA
+grafana_version: 5.0.3
+grafana_port: 8081
+grafana_organisation: The Organisation
+
+grafana_user: grafana
+grafana_group: grafana
+
+grafana_data_path: /var/lib/grafana
+
+grafana_plugins_path: "{{ grafana_data_path }}/plugins"
+grafana_log_path: /var/log/grafana
