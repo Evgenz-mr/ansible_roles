@@ -32,7 +32,7 @@
 - name: GRAFANA | Install grafana
   yum:
     name: grafana
-    state: present
+    state: latest
 
 - name: Links grafana dir to /
   file:
