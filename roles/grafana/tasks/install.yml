@@ -18,14 +18,16 @@
   tags:
     skip_ansible_lint
 
-- name: GRAFANA | Debian repo key on package cloud
+- name: GRAFANA | CentOS repo key on package cloud
   rpm_key:
-    url: "{{ grafana_key }}"
+    key: "{{ grafana_key }}"
     state: present
 
-- name: GRAFANA | Debian grafana repo
-  yum_repository:
-    repo: "{{ grafana_repo }}"
+- name: GRAFANA | CentOS grafana repo
+  template:
+    src: grafana.repo
+    dest: "{{ grafana_repo }}"
+    mode: 0755
 
 - name: GRAFANA | Install grafana
   yum:

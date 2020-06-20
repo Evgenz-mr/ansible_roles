@@ -3,5 +3,5 @@ grafana_required_libs:
   - initscripts
   - urw-fonts
 
-grafana_repo: "rpm https://packages.grafana.com/oss/rpm stable main"
+grafana_repo: /etc/yum.repos.d/
 grafana_key: "https://packages.grafana.com/gpg.key"
