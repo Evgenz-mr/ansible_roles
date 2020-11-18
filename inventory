@@ -1,2 +1,2 @@
 [web]
-Linux ansible_host=192.168.88.200 ansible_user=root
+192.168.88.200
