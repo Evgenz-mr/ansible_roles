@@ -1,5 +1,0 @@
----
-# handlers file for deploy_tomcat_web
-- name: restart tomcat
-  service: name=tomcat state=restarted
-

@@ -1,5 +1,0 @@
----
-# handlers file for deploy_nginx_web
-- name: restart nginx
-  service: name=nginx state=restarted
-

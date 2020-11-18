@@ -1,3 +1,0 @@
----
-# tasks file for nginx_test
-- import_tasks: verification_nginx.yml

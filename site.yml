@@ -1,0 +1,7 @@
+---
+- hosts: Linux
+  remote_user: root
+
+- name: This command will change the working directory to somedir/
+  shell:
+    cmd: uptime
