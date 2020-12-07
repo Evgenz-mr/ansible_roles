@@ -1,3 +1,2 @@
 [dev]
-pdv ansible_ssh_host={{ vault_ansible_host_1 }}
-ddf ansible_ssh_host={{ vault_ansible_host_2 }}
+pdv ansible_ssh_host={{ vault_ansible_host }}
