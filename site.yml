@@ -1,7 +1,27 @@
 ---
-- hosts: Linux
-  remote_user: root
 
-- name: This command will change the working directory to somedir/
-  shell:
-    cmd: uptime
+- hosts: dev
+  remote_user: "{{ vault_ansible_ssh_user }}"
+
+  tasks:
+    - name: Run a command using a templated variable (always use quote filter to avoid injection)
+      shell: date
+      register: date
+
+    - name: Touch the same file, but add/remove some permissions
+      file:
+        path: "/home/{{ vault_ansible_ssh_user }}/test.txt"
+        state: touch
+        mode: u+rw,g-wx,o-rwx
+
+    - name: Check created file in system
+      shell: ls
+      register: ls
+
+    - name: Check date
+      debug:
+        var: date.stdout
+
+    - name: Check file
+      debug:
+        var: ls.stdout_lines
