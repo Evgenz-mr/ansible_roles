@@ -10,7 +10,7 @@
 
     - name: Touch the same file, but add/remove some permissions
       file:
-        path: "/home/{{ vault_ansible_ssh_user }}/test.txt"
+        path: "{{ vault_ansible_ssh_user }}/test.txt"
         state: touch
         mode: u+rw,g-wx,o-rwx
 
