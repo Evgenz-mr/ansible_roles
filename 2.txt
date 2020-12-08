@@ -1,0 +1,4 @@
+---
+vault_ansible_ssh_user: root
+vault_ansible_ssh_pass: root
+vault_ansible_host: 192.168.88.199
