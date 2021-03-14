@@ -9,7 +9,7 @@ nexus_data: /opt/nexusdata
 nexus_version: nexus-3.24.0-02-unix
 nexus_web: https://download.sonatype.com/nexus/3/{{ nexus_version }}.tar.gz
 
-nexus_ip: 192.168.88.223
+nexus_ip: 0.0.0.0
 nexus_port: 8081
 nexus_context: /nexus
 nexus_user: nexus
