@@ -11,7 +11,7 @@
 wildfly_version: 20.0.0.Final
 wildfly_url: https://download.jboss.org/wildfly/{{ wildfly_version }}/wildfly-{{ wildfly_version }}.tar.gz
 
-wildfly_host: 192.168.88.199
+wildfly_host: 0.0.0.0
 wildfly_port: 9080
 wildfly_manager: 9990
 
