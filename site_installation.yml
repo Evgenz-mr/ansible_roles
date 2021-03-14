@@ -5,12 +5,12 @@
   remote_user: root
 
   roles:
-#   - install_packages
-#   - java
-#   - nginx
-#   - jenkins
-#   - nexus
-#   - sonarqube
-#   - tomcat
-#   - wildfly
-    - grafana
+    - install_packages
+    - java
+    - nginx
+    - jenkins
+    - nexus
+    - sonarqube
+    - tomcat
+    - wildfly
+#   - grafana
