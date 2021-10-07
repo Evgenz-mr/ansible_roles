@@ -13,6 +13,12 @@
         path: "/{{ vault_ansible_ssh_user }}/test.txt"
         state: touch
         mode: u+rw,g-wx,o-rwx
+        
+    - name: Add a line to a file if the file does not exist, without passing regexp
+      ansible.builtin.lineinfile:
+        path: /opt/prometheus.yml
+        line:     -post1
+        create: yes
 
     - name: Check created file in system
       shell: ls
