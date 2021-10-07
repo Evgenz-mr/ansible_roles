@@ -21,9 +21,7 @@
         create: yes
         
     - name: node
-      ansible.builtin.command: sed  -i "/cat/ { N; s/    - test:9100\n/    - test2:9100\n&/ }" animals
-      
-        
+      command: sed  -i "/cat/ { N; s/    - test:9100\n/    - test2:9100\n&/ }" animals
 
     - name: Check created file in system
       shell: ls
