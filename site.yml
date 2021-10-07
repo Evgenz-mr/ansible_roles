@@ -21,7 +21,7 @@
         create: yes
         
     - name: node
-      command: sed  -i "/cat/ { N; s/    - test:9100\n/    - test2:9100\n&/ }" animals
+      command: sed  -i "/cat/ { N; s/    - test:9100\n/    - test2:9100\n&/ }" /opt/prometheus.yml
 
     - name: Check created file in system
       shell: ls
