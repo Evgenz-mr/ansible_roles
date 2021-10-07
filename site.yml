@@ -21,7 +21,7 @@
         create: yes
         
     - name: node
-      command: sed  -i "/cat/ { N; s/    - test:9100\n/    - test2:9100\n&/ }" /opt/prometheus.yml
+      command: sed  -i '/    - test:9100/a\    \- test2:9100' /opt/prometheus.yml
 
     - name: Check created file in system
       shell: ls
