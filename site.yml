@@ -17,7 +17,7 @@
     - name: Add a line to a file if the file does not exist, without passing regexp
       ansible.builtin.lineinfile:
         path: /opt/prometheus.yml
-        line:     -post1
+        line: "    -post1"
         create: yes
 
     - name: Check created file in system
