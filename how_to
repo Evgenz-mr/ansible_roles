@@ -1,0 +1,4 @@
+- hosts: package_host
+  remote_user: "{{ lookup('env', 'ansible_user') }}"
+  
+  ansible-playbook site.yml --extra-vars "ansible_user=evg ansible_password=evg"
