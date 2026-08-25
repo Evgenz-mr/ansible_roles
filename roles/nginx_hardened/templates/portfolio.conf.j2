@@ -1,0 +1,17 @@
+server {
+    listen {{ nginx_port }};
+    server_name {{ nginx_server_name }};
+
+    server_tokens off;
+
+    location = {{ nginx_health_path }} {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    location / {
+        default_type text/plain;
+        return 200 "managed by ansible\n";
+    }
+}
