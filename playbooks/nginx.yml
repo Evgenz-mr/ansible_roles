@@ -1,0 +1,7 @@
+---
+- name: Configure portfolio NGINX servers
+  hosts: app_servers
+  become: true
+  gather_facts: true
+  roles:
+    - role: nginx_hardened
