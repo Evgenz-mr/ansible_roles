@@ -1,0 +1,4 @@
+profile: basic
+exclude_paths:
+  - logs/
+  - roles/jenkins_test/

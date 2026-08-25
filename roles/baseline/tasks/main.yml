@@ -1,0 +1,13 @@
+---
+- name: Install baseline packages
+  ansible.builtin.package:
+    name: "{{ baseline_packages }}"
+    state: present
+
+- name: Ensure operations directory exists
+  ansible.builtin.file:
+    path: /opt/operations
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
