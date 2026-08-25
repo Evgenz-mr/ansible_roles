@@ -1,0 +1,20 @@
+---
+- name: Install NGINX
+  ansible.builtin.package:
+    name: nginx
+    state: present
+
+- name: Install portfolio server configuration
+  ansible.builtin.template:
+    src: portfolio.conf.j2
+    dest: /etc/nginx/conf.d/portfolio.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload nginx
+
+- name: Ensure NGINX is enabled and started
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
