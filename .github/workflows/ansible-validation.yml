@@ -1,0 +1,20 @@
+name: ansible-validation
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ansible tooling
+        run: pip install ansible-core ansible-lint
+      - name: Syntax check
+        run: ansible-playbook -i inventories/dev/hosts.yml playbooks/site.yml --syntax-check
+      - name: Lint modern portfolio content
+        run: ansible-lint playbooks/site.yml roles/baseline/

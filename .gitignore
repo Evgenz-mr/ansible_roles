@@ -1,0 +1,7 @@
+*.retry
+*.log
+logs/
+.vault_pass
+.idea/
+.vscode/
+.DS_Store
